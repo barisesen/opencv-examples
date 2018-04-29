@@ -5,8 +5,6 @@ import cv2
 import imageio
 
 face_cascade = cv2.CascadeClassifier('data/haarcascade-frontalface-default.xml')
-eye_cascade = cv2.CascadeClassifier('data/haarcascade-eye.xml')
-
 smile_cascade = cv2.CascadeClassifier('data/haarcascade-smile.xml')
 
 def detect(frame):
@@ -16,9 +14,6 @@ def detect(frame):
         cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
         roi_gray = gray[y:y+h, x:x+w]
         roi_color = frame[y:y+h, x:x+w]
-        # eyes = eye_cascade.detectMultiScale(roi_gray, 1.1, 3)        
-        # for (ex, ey, ew, eh) in eyes:
-        #     cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
 
         smiles = smile_cascade.detectMultiScale(roi_gray,
             scaleFactor= 1.7,
@@ -26,10 +21,10 @@ def detect(frame):
             minSize=(50, 50))     
 
         for (ex, ey, ew, eh) in smiles:
-            print("güldün :D")
+            print("Smile")
             cv2.rectangle(roi_color, (ex, ey), (ex+ew, ey+eh), (0, 255, 0), 2)
             font = cv2.FONT_HERSHEY_SIMPLEX
-            cv2.putText(roi_color,'Gülmeee :D',(0,130), font, 1, (200,255,155))  
+            cv2.putText(roi_color,'Smile',(0, 130), font, 1, (0,0,255))  
 
     return frame
 
