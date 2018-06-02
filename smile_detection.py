@@ -17,8 +17,8 @@ def detect(frame):
 
         smiles = smile_cascade.detectMultiScale(roi_gray,
             scaleFactor= 1.7,
-            minNeighbors=40,
-            minSize=(50, 50))     
+            minNeighbors=30,
+            minSize=(30, 30))     
 
         for (ex, ey, ew, eh) in smiles:
             print("Smile")
