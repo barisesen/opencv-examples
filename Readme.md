@@ -9,7 +9,7 @@ By using the camera, you first catch the face, then take your eyes and add the g
 * Usage
 
 ```py
-    pyhton hat-and-glasses-filter.py
+    python hat-and-glasses-filter.py
 ```
 
 * Response
